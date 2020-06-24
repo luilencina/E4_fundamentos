@@ -14,20 +14,17 @@ public class BolinhasDeGude {
         System.out.println("3 - Grande");
         int tam = in.nextInt();
 
-        // validação tamanho
+        // caso for diferente, ele vai botar == 1
         while (tam < 1 || tam > 3) {
             System.out.println("Opção inválida, Tente novamente seguindo as opções dadas acima.");
             tam = in.nextInt();
         }
 
-        // switch(tam){
-        //   case 1: return "Pequeno";
-        //  case 2: return "Médio";
-        // case 3: return "Grande";
-        // default: return "Pequeno";
-        //    }
-
         return tam;
+    }
+
+    public String toString(){
+        return "Total: " + QuantEstoque() + "\nPequeno: " + quanTamP + " \nMédio: " + quanTamM + "\nGrande: " + quanTamG;
     }
 
     public int QuantEstoque() {

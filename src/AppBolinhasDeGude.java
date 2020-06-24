@@ -18,7 +18,6 @@ public class AppBolinhasDeGude {
             menu = in.nextInt();
         }
 
-
         // menu
             do {
                 // espaço so para ficar mais boniitinho <3
@@ -49,10 +48,7 @@ public class AppBolinhasDeGude {
                     System.out.println("Obrigada pela compra!");
                     break;
                 case 2:
-                    System.out.println("Quantidade em TOTAL em estoque: " + bolinhasDeGude.QuantEstoque());
-                    System.out.println("Quantidade de bolinhas PEQUENAS: " + bolinhasDeGude.quanTamP);
-                    System.out.println("Quantidade de bolinhas MÉDIAS: " + bolinhasDeGude.quanTamM);
-                    System.out.println("Quantidade de bolinhas GRANDES: " + bolinhasDeGude.quanTamG);
+                   System.out.println(bolinhasDeGude.toString());
                     break;
                 case 3:
                     System.out.println("Insira a quantidade de bolinhas que deseja adicionar ao estoque: ");
@@ -62,10 +58,7 @@ public class AppBolinhasDeGude {
                         quantAdicionar = in.nextInt();
                     }
                     int adicionar = bolinhasDeGude.AdicionarBolinhas(quantAdicionar);
-                    System.out.println("Quantidade em TOTAL em estoque: " + bolinhasDeGude.QuantEstoque());
-                    System.out.println("Quantidade de bolinhas PEQUENAS: " + bolinhasDeGude.quanTamP);
-                    System.out.println("Quantidade de bolinhas MÉDIAS: " + bolinhasDeGude.quanTamM);
-                    System.out.println("Quantidade de bolinhas GRANDES: " + bolinhasDeGude.quanTamG);
+                    System.out.println(bolinhasDeGude.toString());
                     break;
                 default:
                     System.out.println("Opção inválida, Tente novamente seguindo as opções dadas acima.");
