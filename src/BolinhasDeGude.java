@@ -1,6 +1,9 @@
 import java.util.Scanner;
 
 public class BolinhasDeGude {
+    int quanTamP = 1500;
+    int quanTamM = 1000;
+    int quanTamG = 500;
 
     public int tamanhoBolinhas() {
         Scanner in = new Scanner(System.in);
@@ -29,27 +32,41 @@ public class BolinhasDeGude {
 
     public int QuantEstoque(int quantComprado) {
         Scanner in = new Scanner(System.in);
-        // AppBolinhasDeGude appBolinhasDeGude = new AppBolinhasDeGude();
 
-        //variaveis
-        int quantTotal = 600;
         int tam = tamanhoBolinhas();
+        int quantEstoque = 0;
 
-        //validacao
-        while (quantComprado > quantTotal) {
-            System.out.println("Valor indisponivél para compra. Valor de bolinhas disponivéis: ");
-            System.out.println(quantTotal);
-            quantComprado = in.nextInt();
+        switch(tam){
+            case 1:
+                    System.out.println("Valor disponivel: " + quanTamP);
+                    quantEstoque = quanTamP - quantComprado;
+                    break;
+
+            case 2:
+                    System.out.println("Valor disponivel: " + quanTamM);
+                   quantEstoque = quanTamM - quantComprado;
+                   break;
+
+            case 3:
+                    System.out.println("Valor disponivel: " + quanTamG);
+                    quantEstoque = quanTamG - quantComprado;
+                    break;
+
+            default:
+                    System.out.println("Valor disponivel: " + quanTamP);
+                   quantEstoque = quanTamP - quantComprado;
+                   break;
         }
 
-        int quantEstoque = quantTotal - quantComprado;
+        int quantEstoqueTotal = quanTamG + quanTamP + quanTamM;
 
-        System.out.println("Nova Quantidade em estoque: " + quantEstoque);
+        System.out.println("Nova quantidade de tamanho " + tam + " disponivel: " + quantEstoque);
         System.out.println("Quantidade Comprada: " + quantComprado);
         System.out.println("Quantidade de caixas cecessárias para entrega: " + QuantCaixas(tam, quantComprado));
 
         return quantEstoque;
     }
+
 
 
     public int QuantCaixas(int tam, int quantComprado) {
@@ -67,6 +84,7 @@ public class BolinhasDeGude {
                     quantCaixas = (quantComprado / 150) + 1;
                 }
                 System.out.println("Você selecionou o tamanho PEQUENO!");
+
                 break;
 
             case 2:
