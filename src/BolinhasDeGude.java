@@ -30,7 +30,26 @@ public class BolinhasDeGude {
         return tam;
     }
 
-    public int QuantEstoque(int quantComprado) {
+    public int QuantEstoque() {
+       int quantEstoqueTotal = quanTamP + quanTamG + quanTamM;
+       return quantEstoqueTotal;
+    }
+
+    public int AdicionarBolinhas(int quantAdicionar){
+        Scanner in = new Scanner(System.in);
+
+        int tam = tamanhoBolinhas();
+
+        switch (tam){
+            case 1: return  quanTamP = quanTamP + quantAdicionar;
+            case 2: return quanTamM = quanTamM + quantAdicionar;
+            case 3: return quanTamG = quanTamG + quantAdicionar;
+            default: return quanTamP = quanTamP + quantAdicionar;
+        }
+
+    }
+
+    public int RealizarCompra(int quantComprado){
         Scanner in = new Scanner(System.in);
 
         int tam = tamanhoBolinhas();
@@ -38,33 +57,55 @@ public class BolinhasDeGude {
 
         switch(tam){
             case 1:
+                while(quantComprado > quanTamP ) {
+                    System.out.println("valor inserido é maior que o disponivel");
                     System.out.println("Valor disponivel: " + quanTamP);
-                    quantEstoque = quanTamP - quantComprado;
-                    break;
+                    quantComprado = in.nextInt();
+                }
+                quanTamP = quanTamP - quantComprado;
+                quantEstoque = quanTamP;
+                System.out.println("Nova quantidade de tamanho " + tam + " disponivel: " + quanTamP);
+                break;
 
             case 2:
+                while(quantComprado > quanTamM ) {
+                    System.out.println("valor inserido é maior que o disponivel");
                     System.out.println("Valor disponivel: " + quanTamM);
-                   quantEstoque = quanTamM - quantComprado;
-                   break;
+                    quantComprado = in.nextInt();
+                }
+                quanTamM = quanTamM - quantComprado;
+                quantEstoque = quanTamM;
+                System.out.println("Nova quantidade de tamanho " + tam + " disponivel: " + quanTamM);
+                break;
 
             case 3:
+                while(quantComprado > quanTamG ) {
+                    System.out.println("valor inserido é maior que o disponivel");
                     System.out.println("Valor disponivel: " + quanTamG);
-                    quantEstoque = quanTamG - quantComprado;
-                    break;
+                    quantComprado = in.nextInt();
+                }
+                quanTamG = quanTamG - quantComprado;
+                quantEstoque = quanTamG;
+                System.out.println("Nova quantidade de tamanho " + tam + " disponivel: " + quanTamG);
+                break;
 
             default:
+                while(quantComprado > quanTamP ) {
+                    System.out.println("valor inserido é maior que o disponivel");
                     System.out.println("Valor disponivel: " + quanTamP);
-                   quantEstoque = quanTamP - quantComprado;
-                   break;
+                    quantComprado = in.nextInt();
+                }
+                quanTamP = quanTamP - quantComprado;
+                quantEstoque = quanTamP;
+                System.out.println("Nova quantidade de tamanho " + tam + " disponivel: " + quanTamP);
+                break;
         }
 
-        int quantEstoqueTotal = quanTamG + quanTamP + quanTamM;
-
-        System.out.println("Nova quantidade de tamanho " + tam + " disponivel: " + quantEstoque);
         System.out.println("Quantidade Comprada: " + quantComprado);
         System.out.println("Quantidade de caixas cecessárias para entrega: " + QuantCaixas(tam, quantComprado));
 
         return quantEstoque;
+
     }
 
 

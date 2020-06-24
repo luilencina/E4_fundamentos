@@ -41,16 +41,31 @@ public class AppBolinhasDeGude {
                 case 1:
                     System.out.println("Insira a quantidade de bolinhas que deseja adquirir: ");
                     int quantComprar = in.nextInt();
-                    int quantEstoque = bolinhasDeGude.QuantEstoque(quantComprar);
+                    while(quantComprar < 0){
+                        System.out.println("Valor inválido, tente novamente!");
+                        quantComprar = in.nextInt();
+                    }
+                    int quantEstoque = bolinhasDeGude.RealizarCompra(quantComprar);
                     System.out.println("Obrigada pela compra!");
                     break;
                 case 2:
-                    System.out.println("Quantidade em estoque:");
+                    System.out.println("Quantidade em TOTAL em estoque: " + bolinhasDeGude.QuantEstoque());
+                    System.out.println("Quantidade de bolinhas PEQUENAS: " + bolinhasDeGude.quanTamP);
+                    System.out.println("Quantidade de bolinhas MÉDIAS: " + bolinhasDeGude.quanTamM);
+                    System.out.println("Quantidade de bolinhas GRANDES: " + bolinhasDeGude.quanTamG);
                     break;
                 case 3:
                     System.out.println("Insira a quantidade de bolinhas que deseja adicionar ao estoque: ");
                     int quantAdicionar = in.nextInt();
-                    int quanEstoque = bolinhasDeGude.QuantEstoque(quantAdicionar);
+                    while(quantAdicionar < 0){
+                        System.out.println("Valor inválido, tente novamente!");
+                        quantAdicionar = in.nextInt();
+                    }
+                    int adicionar = bolinhasDeGude.AdicionarBolinhas(quantAdicionar);
+                    System.out.println("Quantidade em TOTAL em estoque: " + bolinhasDeGude.QuantEstoque());
+                    System.out.println("Quantidade de bolinhas PEQUENAS: " + bolinhasDeGude.quanTamP);
+                    System.out.println("Quantidade de bolinhas MÉDIAS: " + bolinhasDeGude.quanTamM);
+                    System.out.println("Quantidade de bolinhas GRANDES: " + bolinhasDeGude.quanTamG);
                     break;
                 default:
                     System.out.println("Opção inválida, Tente novamente seguindo as opções dadas acima.");
